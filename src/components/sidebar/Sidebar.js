@@ -50,7 +50,7 @@ const Sidebar = () => {
           <p className="title">USEFUL</p>
 
           <li>
-            <InsertChartIcon />
+            <InsertChartIcon className="icon" />
             <span>Stats</span>
           </li>
           <li>
