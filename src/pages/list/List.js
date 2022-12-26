@@ -3,7 +3,7 @@ import "./List.scss";
 const List = () => {
   return (
     <div className="list">
-      <h1 className="title">Sinisa Stojanovic HOME PAGE</h1>
+      <h1 className="title">Sinisa Stojanovic LIST PAGE</h1>
     </div>
   );
 };
