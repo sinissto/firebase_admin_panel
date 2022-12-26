@@ -1,11 +1,11 @@
-import "./Home.scss";
+import "./List.scss";
 
-const Home = () => {
+const List = () => {
   return (
-    <div className="home">
+    <div className="list">
       <h1 className="title">Sinisa Stojanovic HOME PAGE</h1>
     </div>
   );
 };
 
-export default Home;
+export default List;
