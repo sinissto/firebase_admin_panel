@@ -11,11 +11,24 @@
       //justify-content: space-between;
       padding: 2rem;
       gap: 2rem;
-      margin-top: 2rem;
+      margin-top: 0.5rem;
     }
 
     .charts {
       padding: 0.5rem 2rem;
+    }
+
+    .listContainer {
+      padding: 2rem;
+      margin: 2rem;
+      box-shadow: 5px 5px 10px 1px rgba(201, 201, 201, 0.47);
+
+      .listTitle {
+        font-size: 1.6rem;
+        font-weight: 500;
+        color: gray;
+        margin-bottom: 1.5rem;
+      }
     }
   }
 

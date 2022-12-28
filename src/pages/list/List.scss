@@ -1,7 +1,9 @@
 .list {
-  background-color: rebeccapurple;
+  display: flex;
+  width: 100%;
+  font-size: 1.6rem;
 
-  .title {
-    color: white;
+  .listContainer {
+    flex: 6;
   }
 }

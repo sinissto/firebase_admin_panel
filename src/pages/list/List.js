@@ -1,9 +1,15 @@
-import "./List.scss";
+import './List.scss';
+import Sidebar from '../../components/sidebar/Sidebar';
+import Navbar from '../../components/navbar/Navbar';
 
 const List = () => {
   return (
     <div className="list">
-      <h1 className="title">Sinisa Stojanovic LIST PAGE</h1>
+      <Sidebar />
+      <div className="listContainer">
+        <Navbar />
+        datatabkle
+      </div>
     </div>
   );
 };
