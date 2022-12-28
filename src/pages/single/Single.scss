@@ -1,7 +1,89 @@
 .single {
-  background-color: rebeccapurple;
+  display: flex;
+  width: 100%;
+
+  .singleContainer {
+    flex: 6;
+
+    .top {
+      padding: 2rem;
+      display: flex;
+      gap: 2rem;
+
+      .left {
+        flex: 1;
+        padding: 2rem;
+        box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+        //background-color: #888888;
+        position: relative;
+        border-radius: 0.5rem;
+        overflow: hidden;
+
+        .editButton {
+          position: absolute;
+          top: 0;
+          right: 0;
+          padding: 0.8rem;
+          background-color: white;
+          color: #7451f8;
+          background-color: rgba(116, 81, 248, 0.37);
+          font-size: 1.2rem;
+          border-radius: 0.5rem;
+          cursor: pointer;
+        }
+
+        .item {
+          display: flex;
+          gap: 2rem;
+
+          .itemImg {
+            height: 10rem;
+            width: 10rem;
+            border-radius: 50%;
+            object-fit: cover;
+          }
+
+          .details {
+            font-size: 1.4rem;
+
+            .itemTitle {
+              margin-bottom: 1rem;
+              color: #555;
+            }
+
+            .detailItem {
+              margin-bottom: 1rem;
+
+              .itemKey {
+                font-weight: bold;
+                color: gray;
+                margin-right: 1rem;
+              }
+
+              .itemValue {
+                font-weight: 300;
+              }
+            }
+          }
+        }
+      }
+
+      .right {
+        flex: 2;
+      }
+    }
+
+    .bottom {
+      padding: 2rem;
+      box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+      margin: 2rem;
+      border-radius: 1rem;
+    }
+  }
 
   .title {
-    color: white;
+    font-size: 1.4rem;
+    color: lightgray;
+    margin-bottom: 2rem;
   }
 }
