@@ -17,39 +17,47 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <div className="top">
-        <span className="logo">Admin panel</span>
+        <Link to="/" style={{ textDecoration: 'none' }}>
+          <span className="logo">Admin panel</span>
+        </Link>
       </div>
       <hr />
       <div className="center">
         <ul>
           <p className="title">MAIN</p>
 
-          <li>
-            <DashboardIcon className="icon" />
-            <Link to="/" style={{ textDecoration: 'none' }}>
+          <Link to="/" style={{ textDecoration: 'none' }}>
+            <li>
+              <DashboardIcon className="icon" />
               <span>Dashboard</span>
-            </Link>
-          </li>
+            </li>
+          </Link>
 
           <p className="title">LISTS</p>
 
-          <li>
-            <PersonOutlinedIcon className="icon" />
-            <Link to="/users/" style={{ textDecoration: 'none' }}>
+          <Link to="/users/" style={{ textDecoration: 'none' }}>
+            <li>
+              <PersonOutlinedIcon className="icon" />
               <span>Users</span>
+            </li>
+          </Link>
+          <Link to="/products/" style={{ textDecoration: 'none' }}>
+            <li>
+              <StoreIcon className="icon" />
+              <span>Products</span>
+            </li>
+          </Link>
+          <li>
+            <CreditCardIcon className="icon" />
+            <Link to="/orders/" style={{ textDecoration: 'none' }}>
+              <span>Orders</span>
             </Link>
           </li>
           <li>
-            <StoreIcon className="icon" />
-            <span>Products</span>
-          </li>
-          <li>
-            <CreditCardIcon className="icon" />
-            <span>Orders</span>
-          </li>
-          <li>
             <LocalShippingIcon className="icon" />
-            <span>Delivery</span>
+            <Link to="/delivery/" style={{ textDecoration: 'none' }}>
+              <span>Delivery</span>
+            </Link>
           </li>
 
           <p className="title">USEFUL</p>

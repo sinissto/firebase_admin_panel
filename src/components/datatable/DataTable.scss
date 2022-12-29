@@ -1,7 +1,25 @@
 .datatable {
   //background-color: #6439ff;
-  //padding: 2rem;
+  padding: 2rem;
   height: 95vh;
+
+  .dataTableTitle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    color: gray;
+    margin-bottom: 1rem;
+
+    .link {
+      text-decoration: none;
+      padding: 1rem;
+      color: white;
+      background-color: teal;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  }
 
   .dataGrid {
     font-size: 1.6rem;
