@@ -2,7 +2,6 @@ import './Single.scss';
 import Sidebar from '../../components/sidebar/Sidebar';
 import Navbar from '../../components/navbar/Navbar';
 import Chart from '../../components/chart/Chart';
-import DataTable from '../../components/datatable/DataTable';
 import TableList from '../../components/table/Table';
 
 const Single = () => {

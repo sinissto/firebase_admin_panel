@@ -1,7 +1,103 @@
 .new {
-  background-color: rebeccapurple;
+  display: flex;
+  width: 100%;
 
-  .title {
-    color: white;
+  .newContainer {
+    flex: 6;
+
+    .top,
+    .bottom {
+      margin: 2rem;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 5px 5px 10px 1px rgba(201, 201, 201, 0.47);
+      display: flex;
+    }
+
+    .top {
+      h1 {
+        color: lightgray;
+      }
+    }
+
+    .bottom {
+      align-items: center;
+
+      .left {
+        flex: 1;
+        text-align: center;
+
+        img {
+          width: 10rem;
+          height: 10rem;
+          object-fit: cover;
+          border-radius: 50%;
+        }
+      }
+
+      .right {
+        flex: 2;
+
+        form {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-around;
+          gap: 3rem;
+
+          font-size: 1.6rem;
+
+          .formInput {
+            width: 40%;
+
+            label {
+              display: inline-block;
+              //width: 30%;
+              margin-bottom: 0.5rem;
+
+              &:first-child {
+                display: flex;
+                align-items: center;
+              }
+
+              .icon {
+                margin-left: 2rem;
+                font-size: 3rem;
+                color: green;
+                cursor: pointer;
+              }
+            }
+
+            input {
+              width: 100%;
+              padding: 0.5rem;
+              border: none;
+              border-bottom: 1px solid black;
+
+              &:focus {
+                outline: none;
+              }
+            }
+          }
+          button {
+            //display: inline-block;
+            width: 15rem;
+            padding: 1rem;
+            background-color: teal;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            box-shadow: 3px 3px 7px 0px rgba(201, 201, 201, 0.47);
+            transition: all 0.3s ease;
+            font-weight: bold;
+            margin-top: 1rem;
+
+            &:active {
+              transform: scale(0.95);
+              box-shadow: 0px 0px 4px 0px rgba(201, 201, 201, 0.47);
+            }
+          }
+        }
+      }
+    }
   }
 }
