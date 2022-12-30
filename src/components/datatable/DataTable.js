@@ -47,9 +47,11 @@ const DataTable = () => {
         </Link>
       </div>
       <DataGrid
-        className="dataGrid"
+        className="datagrid"
         columns={userColumns.concat(actionColumn)}
-        rows={userRows}
+        rows={data}
+        pageSize={9}
+        rowsPerPageOptions={[9]}
         checkboxSelection={true}
       />
     </div>
