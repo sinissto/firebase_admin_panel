@@ -1,7 +1,58 @@
 .login {
-  background-color: rebeccapurple;
+  //width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  .title {
-    color: white;
+  //position: absolute;
+  //top: 50%;
+  //left: 50%;
+  //transform: translate(-50%, -50%);
+  //background-color: #7451f8;
+  padding: 2rem;
+
+  form {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+
+    input {
+      width: 20rem;
+      //height: 3rem;
+      margin: 1rem;
+      padding: 1rem;
+      font-size: 1.6rem;
+      border-radius: 10px;
+      border: 1px solid black;
+      &:focus {
+        outline: none;
+      }
+    }
+
+    button {
+      margin: 5px 0;
+      width: 20rem;
+      height: 3rem;
+      padding: 1rem;
+      border: none;
+      background-color: purple;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 5px;
+    }
+
+    span {
+      font-size: 1.2rem;
+      color: red;
+      margin-top: 1rem;
+    }
   }
 }
