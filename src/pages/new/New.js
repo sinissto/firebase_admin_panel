@@ -3,12 +3,42 @@ import Sidebar from '../../components/sidebar/Sidebar';
 import Navbar from '../../components/navbar/Navbar';
 import DriveFolderUploadOutlinedIcon from '@mui/icons-material/DriveFolderUploadOutlined';
 import { useState } from 'react';
+import { db, auth } from '../../firebase';
+import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 const New = ({ inputs, title }) => {
   const [file, setFile] = useState('');
+  const [data, setData] = useState({});
 
-  const handleSubmit = (e) => {
+  const handleInputFn = (e) => {
+    const id = e.target.id;
+    const value = e.target.value;
+
+    setData({ ...data, [id]: value });
+  };
+
+  console.log(data);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    try {
+      const res = await createUserWithEmailAndPassword(
+        auth,
+        data.email,
+        data.password
+      );
+
+      console.log('novi korisnik dodat u firebase');
+
+      await setDoc(doc(db, 'users', res.user.uid), {
+        ...data,
+        timeStamp: serverTimestamp(),
+      });
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
@@ -52,7 +82,8 @@ const New = ({ inputs, title }) => {
                     <input
                       type={input.type}
                       placeholder={input.placeholder}
-                      id={input.label}
+                      id={input.id}
+                      onChange={handleInputFn}
                     />
                   </div>
                 );
