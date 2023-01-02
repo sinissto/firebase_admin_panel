@@ -5,13 +5,12 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   collection,
-  getDocs,
+  // getDocs,
   doc,
   deleteDoc,
   onSnapshot,
 } from 'firebase/firestore';
 import { db } from '../../firebase';
-import list from '../../pages/list/List';
 
 const DataTable = () => {
   const [data, setData] = useState([]);
