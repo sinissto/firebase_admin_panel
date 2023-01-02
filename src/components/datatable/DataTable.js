@@ -3,27 +3,50 @@ import { DataGrid } from '@mui/x-data-grid';
 import { userColumns } from '../../datatablesource';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { collection, getDocs, doc, deleteDoc } from 'firebase/firestore';
+import {
+  collection,
+  getDocs,
+  doc,
+  deleteDoc,
+  onSnapshot,
+} from 'firebase/firestore';
 import { db } from '../../firebase';
+import list from '../../pages/list/List';
 
 const DataTable = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    try {
-      let usersList = [];
-      const fetchData = async () => {
-        const querySnapshot = await getDocs(collection(db, 'users'));
-        querySnapshot.forEach((doc) => {
-          // doc.data() is never undefined for query doc snapshots
-          // console.log(doc.data());
-          // console.log(doc.id, ' => ', doc.data());
-          usersList.push({ id: doc.id, ...doc.data() });
-        });
-        setData(usersList);
-      };
+    // try {
+    //   let usersList = [];
+    //   const fetchData = async () => {
+    //     const querySnapshot = await getDocs(collection(db, 'users'));
+    //     querySnapshot.forEach((doc) => {
+    //       // doc.data() is never undefined for query doc snapshots
+    //       // console.log(doc.data());
+    //       // console.log(doc.id, ' => ', doc.data());
+    //       usersList.push({ id: doc.id, ...doc.data() });
+    //     });
+    //     setData(usersList);
+    //   };
+    //
+    //   fetchData();
+    // } catch (err) {
+    //   console.log(err);
+    // }
 
-      fetchData();
+    //LISTEN
+    try {
+      const unsub = onSnapshot(collection(db, 'users'), (snapShoot) => {
+        let list = [];
+        snapShoot.docs.forEach((doc) =>
+          list.push({ id: doc.id, ...doc.data() })
+        );
+        setData(list);
+      });
+      return () => {
+        unsub();
+      };
     } catch (err) {
       console.log(err);
     }
