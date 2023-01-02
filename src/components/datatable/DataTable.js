@@ -1,14 +1,44 @@
 import './DataTable.scss';
 import { DataGrid } from '@mui/x-data-grid';
-import { userColumns, userRows } from '../../datatablesource';
-import { useState } from 'react';
+import { userColumns } from '../../datatablesource';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { collection, getDocs, doc, deleteDoc } from 'firebase/firestore';
+import { db } from '../../firebase';
 
 const DataTable = () => {
-  const [data, setData] = useState(userRows);
+  const [data, setData] = useState([]);
 
-  const handleDelete = (id) => {
-    setData(data.filter((item) => item.id !== id));
+  useEffect(() => {
+    try {
+      let usersList = [];
+      const fetchData = async () => {
+        const querySnapshot = await getDocs(collection(db, 'users'));
+        querySnapshot.forEach((doc) => {
+          // doc.data() is never undefined for query doc snapshots
+          // console.log(doc.data());
+          // console.log(doc.id, ' => ', doc.data());
+          usersList.push({ id: doc.id, ...doc.data() });
+        });
+        setData(usersList);
+      };
+
+      fetchData();
+    } catch (err) {
+      console.log(err);
+    }
+  }, []);
+
+  // console.log(data);
+
+  const handleDelete = async (id) => {
+    try {
+      await deleteDoc(doc(db, 'users', id));
+      setData(data.filter((item) => item.id !== id));
+      console.log('korisnik obrisan');
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const actionColumn = [
